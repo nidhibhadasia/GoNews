@@ -12,7 +12,7 @@ import SVProgressHUD
 import Reachability
 import Alamofire
 import SwiftyJSON
-
+import SafariServices
 
 struct NewsModel {
     var title: String = ""
@@ -28,7 +28,7 @@ struct NewsModel {
     }
 }
 
-class NewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NewsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,SFSafariViewControllerDelegate {
     
     @IBOutlet weak var tblViewNews: UITableView!
     var arNews = [NewsModel]()
@@ -90,8 +90,20 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let urlString =  arNews[indexPath.row].url
+        if let url = URL(string: urlString) {
+            let vc = SFSafariViewController(url: url)
+            vc.delegate = self
+            present(vc, animated: true)
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    // MARK:- SFSafariViewController Delegate
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        dismiss(animated: true)
+    }
+
     
     // MARK:- API Call
     
@@ -135,16 +147,6 @@ class NewsViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "News" {
-            if let indexPath = tblViewNews.indexPathForSelectedRow{
-                let selectedRow = indexPath.row
-                let newsDetail = segue.destination as! NewsDetailViewController
-                newsDetail.newsDetailModel =  arNews[selectedRow]
-            }
-        }
-    }
 }
 
 

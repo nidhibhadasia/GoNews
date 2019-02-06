@@ -17,7 +17,6 @@
 		9A25D3D32206713100D96661 /* GoNewsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A25D3D22206713100D96661 /* GoNewsUITests.swift */; };
 		9A5E90242207B43C00ABDE63 /* UIContol+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E90232207B43B00ABDE63 /* UIContol+Extension.swift */; };
 		9A5E902A2207B4ED00ABDE63 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E90292207B4ED00ABDE63 /* NewsTableViewCell.swift */; };
-		9A5E902F2207B4F800ABDE63 /* NewsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E902C2207B4F800ABDE63 /* NewsDetailViewController.swift */; };
 		9A5E90302207B4F800ABDE63 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E902D2207B4F800ABDE63 /* NewsViewController.swift */; };
 		9A5E90312207B4F800ABDE63 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E902E2207B4F800ABDE63 /* SearchViewController.swift */; };
 		9A5E90332207B78C00ABDE63 /* KeyConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5E90322207B78C00ABDE63 /* KeyConstants.swift */; };
@@ -62,7 +61,6 @@
 		9A25D3D42206713100D96661 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A5E90232207B43B00ABDE63 /* UIContol+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIContol+Extension.swift"; sourceTree = "<group>"; };
 		9A5E90292207B4ED00ABDE63 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
-		9A5E902C2207B4F800ABDE63 /* NewsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsDetailViewController.swift; sourceTree = "<group>"; };
 		9A5E902D2207B4F800ABDE63 /* NewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		9A5E902E2207B4F800ABDE63 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9A5E90322207B78C00ABDE63 /* KeyConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyConstants.swift; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 			children = (
 				9A5E902D2207B4F800ABDE63 /* NewsViewController.swift */,
 				9A5E902E2207B4F800ABDE63 /* SearchViewController.swift */,
-				9A5E902C2207B4F800ABDE63 /* NewsDetailViewController.swift */,
 			);
 			name = Controller;
 			path = GoNews/Controller;
@@ -449,7 +446,6 @@
 			files = (
 				9A5E90312207B4F800ABDE63 /* SearchViewController.swift in Sources */,
 				9A5E90302207B4F800ABDE63 /* NewsViewController.swift in Sources */,
-				9A5E902F2207B4F800ABDE63 /* NewsDetailViewController.swift in Sources */,
 				9A25D3B12206713000D96661 /* AppDelegate.swift in Sources */,
 				9A5E90332207B78C00ABDE63 /* KeyConstants.swift in Sources */,
 				9A5E90242207B43C00ABDE63 /* UIContol+Extension.swift in Sources */,

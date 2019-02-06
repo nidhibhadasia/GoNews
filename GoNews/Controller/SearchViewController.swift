@@ -12,8 +12,9 @@ import SVProgressHUD
 import Reachability
 import Alamofire
 import SwiftyJSON
+import SafariServices
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, SFSafariViewControllerDelegate {
     
     @IBOutlet weak var tblViewSearch: UITableView!
     var arNews = [NewsModel]()
@@ -78,6 +79,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let urlString =  arNews[indexPath.row].url
+        if let url = URL(string: urlString) {
+            
+            let vc = SFSafariViewController(url: url)
+            vc.delegate = self
+            present(vc, animated: true)
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -115,6 +123,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return newString.rangeOfCharacter(from:CharacterSet.whitespacesAndNewlines).location != 0
     }
     
+    // MARK:- SFSafariViewController Delegate
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        dismiss(animated: true)
+    }
+
     
     // MARK:- API Call
     func callTopSeachAPI(withText:String){
@@ -168,15 +181,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         alert.addAction(ok)
         present(alert, animated: true,completion:nil)
     }
-    // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "Search" {
-            if let indexPath = tblViewSearch.indexPathForSelectedRow{
-                let selectedRow = indexPath.row
-                let newsDetail = segue.destination as! NewsDetailViewController
-                newsDetail.newsDetailModel =  arNews[selectedRow]
-            }
-        }
-    }
+
     
 }
